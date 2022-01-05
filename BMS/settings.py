@@ -140,7 +140,7 @@ USE_TZ = True
 # ]    
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 
 #Managing Media
