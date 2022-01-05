@@ -53,8 +53,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'BMS.urls'
 
-STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
