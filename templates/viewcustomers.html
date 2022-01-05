@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Our Customers{% endblock title %}
+
+<!-- Navabar Button -->
+{% block additem %}
+<a href="{% url 'transferdetails' %}"><button class="btn text-white rounded-pill me-2"
+        style="background-image: linear-gradient(to bottom right, orange, red);">Transaction Details</button></a>
+        <a href="{% url 'transfer' %}"><button class="btn rounded-pill float-end"
+            style="background-image: linear-gradient(to bottom right, cyan, yellow);">Transfer Money</button></a>        
+{% endblock additem %}
+
+{% block body %}
+
+<!-- All Customer Details Here -->
+<div class="container mt-4" style="height: auto;">
+    <h5 class="text-center fs-1 fw-bolder text-dark">All Customer Details</h5>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 d-block m-auto">
+            <table class="table fw-bold">
+                <thead>
+                    <tr>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">Account Number</th>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">Name</th>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">DOB</th>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">Email</th>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">Current Balance</th>
+                        <th class="border border-primary text-center border-4 p-3 fw-bolder ">Profile Photo</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detail in cust_details %}
+                    <tr>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold ">{{detail.acc_number}}</td>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold ">{{detail.name}}</td>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold ">{{detail.dob}}</td>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold ">{{detail.email}}</td>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold ">&#8377;{{detail.curr_balance}}</td>
+                        <td class="border border-primary text-center border-4 p-3 fw-bold "><img src="{{detail.profile_pic.url}}"
+                                class="img-fluid p-0 rounded-circle" alt=""
+                                style="max-width: 30px; max-height: 30px;"></img></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <blockquote class="blockquote">
+        <p class="text-danger"><u>Note</u> :- Only admin can change/edit Customer details.</p>
+    </blockquote>
+</div>
+
+{% endblock body %}

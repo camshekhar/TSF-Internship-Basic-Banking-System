@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Transaction Details{% endblock title %}
+
+<!-- Navbar Button -->
+{% block additem %}
+<a href="{% url 'viewallcustomer' %}"><button class="btn rounded-pill me-2"
+        style="background-image: linear-gradient(to bottom right, cyan, blue);">View All Customer</button></a>
+<a href="{% url 'transfer' %}"><button class="btn rounded-pill float-end"
+         style="background-image: linear-gradient(to bottom right, cyan, yellow);">Transfer Money</button></a>        
+{% endblock additem %}
+
+
+{% block body %}
+
+<!-- Message Icons imported from Here -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+</svg>
+
+<!-- Messages showing Here -->
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+        <use xlink:href="#check-circle-fill" />
+    </svg>
+    <div>
+        {{message}}
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<!-- Transaction Details Container -->
+<div class="container mt-4" style="height: auto;">
+    <h5 class="text-center fs-1 fw-bolder text-dark">Transaction Details</h5>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 d-block m-auto">
+            <table class=" table fw-bold ">
+                <thead>
+                    <tr>
+                        <th class="border border-info text-center border-4 p-3 fw-bolder ">Sender's Name</th>
+                        <th class="border border-info text-center border-4 p-3 fw-bolder ">Transfer Amount</th>
+                        <th class="border border-info text-center border-4 p-3 fw-bolder ">Receiver's Name</th>
+                        <th class="border border-info text-center border-4 p-3 fw-bolder ">Transaction Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detail in tr_details %}
+                    <tr>
+                        <td class="border border-info text-center border-4 p-3 fw-bold ">{{detail.sender_name}}</td>
+                        <td class="border border-info text-center border-4 p-3 fw-bold ">&#8377;{{detail.amount}}</td>
+                        <td class="border border-info text-center border-4 p-3 fw-bold ">{{detail.receiver_name}}</td>
+                        <td class="border border-info text-center border-4 p-3 fw-bold ">{{detail.trans_date}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <blockquote class="blockquote">
+        <p class="text-danger"><u>Note</u> :- Only admin can change/edit Transaction details.</p>
+    </blockquote>
+</div>
+
+{% endblock body %}

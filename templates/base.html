@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<!-- Head Starts Here -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page Title & Favicon-->
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+  <!-- CSS Importings -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<!-- Custom Styling Here -->
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Poppins,wght@1,200&display=swap');
+    
+   .navbar-brand{
+      font-family: 'Libre Baskerville', serif;
+      font-size: 4vh;
+      padding: 0;
+    }
+    .text-dark{
+      font-family: 'Poppins', sans-serif;
+    }
+
+.img-fluid{
+  max-height: 20px;
+  max-width: 20px;
+}
+
+body {
+   background-color: #c8d8e4;
+    }
+  .bg {
+   background-color: #65a5d6; 
+    }
+  </style>
+</head>
+
+<!-- Main Content Here -->
+<body>
+
+<!-- Navbar Section Here -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bolder ms-5" href="/"> <img src="{% static 'images/favicon.ico' %}" class="img-fluid p-0"> TSF-skBanking</a>
+      <button style="background-image: linear-gradient(to top left, black,#13466d, #65a5d6);" class="navbar-toggler"
+        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        </ul>
+        <a class="nav-link active" aria-current="page" href="#">{% block additem %}{% endblock additem %}</a>
+      </div>
+    </div>
+  </nav>
+  {% block body %}
+  
+  {% endblock body %}
+
+<!-- Footer Credits Here -->
+<hr>
+<footer class="p-4  text-center text-light sticky-bottom mt-3" style="background-image: linear-gradient(black, #1c2e4a, black);">&copy;<a href="/"
+      class="text-info text-decoration-none "> TSF-skBanking</a>
+    || Developed By -> <a class="text-info text-decoration-none"
+      href="https://www.linkedin.com/in/kumar-shekhar/">Shekhar Kumar</a>
+</footer>
+
+<!-- JavaScript Importing  -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

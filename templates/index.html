@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+
+<!-- Navbar Button -->
+{% block additem %}
+<a href="{% url 'transferdetails' %}"><button class="btn rounded-pill text-white me-2"
+    style="background-image: linear-gradient(to bottom right, orange, red);">Transaction
+    Details</button></a>
+<a href="{% url 'transfer' %}"><button class="btn rounded-pill float-end"
+    style="background-image: linear-gradient(to bottom right, cyan, yellow);">Transfer Money</button></a>
+
+{% endblock additem %}
+{% block body %}
+
+<!-- Home Page -->
+<div class="container mt-5" style="height: 80vh;">
+  <div class="card rounded-bottom rounded-3">
+    <div class="card-header bg-primary text-center fw-bolder"
+      style="background-image: linear-gradient(to bottom right, #65a5d6, white);">
+      Welcome to skBanking!
+    </div>
+    <div class="card-body p-4" style="background-color: #e0f5ff;"><br>
+      <h3 class="card-title text-center" style="height: 20vh;"> <marquee width="50%" scrollamount="5" behavior="alternate" direction="right"> 👇 Meet all our Happy Customers Here 👇</marquee><br>
+        <a href="{% url 'viewallcustomer' %}" class="btn rounded-pill ms-4 mt-2"
+          style="background-image: linear-gradient(to bottom right, cyan, blue);">View All Customers</button></a></h3>
+      <div class="container">
+        <h4>Steps to Follow this Site: </h4>
+        <ul>
+          <li>To view all Customer click on Click to View button above.</li>
+          <li>To view Transaction Details click on Transaction Detail button.</li>
+          <li>To transfer money click on Transfer Money button.</li>
+          <li>That's All Done for now!.</li>
+        </ul>
+      </div>
+      <p class="text-center mb-0">Thanks for Banking with Us! &#128512;</p>
+
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock body %}
